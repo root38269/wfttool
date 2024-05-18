@@ -1,0 +1,247 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+body {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+
+  --header-height: 70px;
+  --footer-height: 0px;
+}
+.wrapper {
+  position: absolute;
+  height: calc(100% - 16px);
+  width: calc(100% - 16px);
+  margin: 8px;
+}
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--header-height);
+}
+.main_title {
+  padding: 2px 5px;
+  border: 7px double rgba(200,200,200,0.5);
+  font-size: 1.7rem;
+  overflow: scroll;
+  white-space: nowrap;
+
+}
+
+
+.main_body {
+  position: absolute;
+  top: var(--header-height);
+  left: 0;
+  right: 0;
+  bottom: var(--footer-height);
+
+  display: flex;
+  flex-direction: row;
+}
+.footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: var(--footer-height);
+}
+
+.confirm_area {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+}
+.DNAgenerator_area {
+  flex-basis: 200px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  margin-right: 10px;
+  padding-right: 10px;
+  border-right: 1px solid gray;
+}
+.DNA_table {
+  margin-top: 2px;
+  overflow: scroll;
+}
+.DNA_item {
+  padding: 5px 10px;
+  margin-bottom: 5px;
+  border: 2px solid black;
+  user-select: none;
+}
+
+
+.table_area {
+  flex-grow: 1;
+}
+.title {
+  height: 2.25rem;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+.button_area {
+  height: 27px;
+}
+.table_wrapper {
+  height: calc(calc(100% - 42px) - 2.25rem);
+  margin-top: 5px;
+  
+  overflow: auto;
+}
+table {
+  border-spacing: 0;
+  width: 100%;
+  max-width: 700px;
+}
+td,th {
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  background-color: white;
+  padding: 2px 5px;
+  white-space: nowrap;
+}
+td:first-child,th:first-child {
+  border-left: 1px solid black;
+}
+th {
+  border-top: 1px solid black;
+  user-select: none;
+}
+thead{
+  position: sticky;
+  top: 0;
+}
+.filter_cell {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+select {
+  width: 100%;
+  height: 1.5rem;
+}
+.filter {
+  position: relative;
+  flex-grow: 1;
+}
+.modify {
+  width: 100%;
+}
+
+.filter_mark {
+  position: relative;
+  height: 1lh;
+  width: 1lh;
+  flex-shrink: 0;
+}
+.filter_mark::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #bbb;
+  clip-path: polygon(10% 10%,90% 10%,60% 45%,60% 90%,40% 90%,40% 45%);
+}
+.filter_mark.filter_on::before {
+  background-color: #666;
+}
+.filter_mark.filter_on::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #666;
+  clip-path: polygon(65% 60%, 95% 60%, 95% 90%, 65% 90%);
+}
+
+
+.register_form_wrapper {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: rgba(0,0,0,0.2);
+}
+.register_form {
+  position: fixed;
+  height: calc(100% - 100px);
+  width: calc(100% - 120px);
+  max-height: 220px;
+  max-width: 600px;
+  min-width: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding: 30px 40px;
+  margin: 20px;
+
+  background-color: #eee;
+  border-radius: 20px;
+  box-shadow: 1px 1px 10px 3px rgba(0,0,0,0.5);
+  overflow: scroll;
+}
+.register_table th {
+  width: 33%;
+}
+.register_table select {
+  height: 100%;
+}
+.register_table input[type="text"] {
+  width: calc(100% - 10px);
+}
+.register_message {
+  font-size: 0.8rem;
+}
+.register_buttons {
+  height: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  gap: 20px;
+
+}
+.register_buttons input {
+  width: 120px;
+  font-size: inherit;
+}
+
+
+
+.hidden {
+  display: none;
+}
+
+
+@media (max-width: 650px) {
+  .main_body {
+    flex-direction: column;
+  }
+  .DNAgenerator_area {
+    order: 2;
+    flex-grow: 1;
+    padding-right: 0;
+    margin-right: 0;
+    border-right: none;
+
+    padding-top: 10px;
+    margin-top: 10px;
+    border-top: 1px solid gray;
+
+  }
+  .table_area {
+    order: 1;
+    flex-grow: 0;
+    
+  }
+
+}

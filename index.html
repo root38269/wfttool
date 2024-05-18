@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>World for Two 結果記録ツール</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="header">
+        <div class="main_title">World for Two 結果記録ツール</div>
+      </div>
+      <div class="main_body">
+        <div class="confirm_area" id="confirm_area">
+          <span>
+            World for Two の生物創造の結果を記録するためのツールです。<br>
+            膨大な組み合わせを記憶することは困難なので、メモやこのツールなどを使うとスムーズに進めることができます。<br>
+            <br>
+            <span style="font-size: 1.1rem;font-weight: bold;text-decoration: underline;">注意事項</span><br>
+            本サイトでは情報の正確性、および本ツールを使用したことによる損害については一切保証しません。<br>
+            また、ネタバレについては可能な限り配慮していますが、完全にネタバレを防ぐことはできませんのでご了承ください。<br>
+            <br>
+            最初の生物を創造したら下のボタンを押してください。
+          </span><br>
+          <input type="button" value="創造した" id="confirm_btn"><br>
+          <br>
+          <span id="save_data_warning" class="hidden">
+            <span style="color: red;font-size: 1.2rem;font-weight: bold;">注意：</span><br>
+            前回このツールを用いて記録したデータが残っています。<br>
+            復元する場合は上の「創造した」ボタンを押してください。<br>
+            <br>
+            前回の記録データを消して初めから記録したい場合は、<br>
+            下の「前回の記録データを削除する」ボタンを押してください。<br>
+            (※実際のゲームのデータとは関係ありません。)<br>
+          </span>
+            <input type="button" value="前回の記録データを削除する" id="save_data_delete" class="hidden" disabled>
+        </div>
+        <div class="DNAgenerator_area hidden" id="DNAgenerator_area">
+          <div class="title">DNA生成装置<span id="DNAgenerator_level"></span></div>
+          <div>
+            <input type="button" value="レベルアップ" id="DNA_levelup"><br><br>
+            <span>作成可能なDNA</span>
+          </div>
+          <div class="DNA_table" id="DNA_table">
+            <div class="DNA_item">原始生命体のDNA</div>
+          </div>
+        </div>
+        <div class="table_area hidden" id="table_area">
+          <div class="title">結果記録表</div>
+          <div class="button_area">
+            <input type="button" value="記録を追加" id="register_form_show_btn" style="height: 100%;">
+          </div>
+          <div class="table_wrapper">
+            <table class="main_table">
+              <thead>
+                <tr>
+                  <th style="width: 50px;">No.</th><th>生物DNA</th><th>人工DNA</th><th>結果</th><th style="width: 50px;"></th>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>
+                    <div class="filter_cell">
+                      <div class="filter_mark"></div>
+                      <select class="filter" id="filter_creatureDNA"></select>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="filter_cell">
+                      <div class="filter_mark"></div>
+                      <select class="filter" id="filter_artificialDNA"></select>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="filter_cell">
+                      <div class="filter_mark"></div>
+                      <select class="filter" id="filter_result"></select>
+                    </div>
+                  </td>
+                  <td></td>
+                </tr>
+              </thead>
+              <tbody id="table_body">
+                
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+
+      </div>
+    </div>
+    <div class="register_form_wrapper hidden" id="register_form_wrapper">
+      <div class="register_form">
+        <div class="register_table_area">
+          <div class="title" id="register_title">結果を登録</div>
+          <table class="register_table">
+            <thead>
+              <tr>
+                <th>生物DNA</th><th>人工DNA</th><th>結果</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <select class="" id="register_creatureDNA"></select>
+                </td>
+                <td>
+                  <select class="" id="register_artificialDNA"></select>
+                </td>
+                <td>
+                  <input type="checkbox" id="failed"><label for="failed" style="user-select: none;">失敗した</label><br>
+                  <input type="text" id="register_result">
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          
+        </div>
+        <div class="register_message">
+          <span>※人工DNAに目的のものがない場合は、DNA生成装置をレベルアップしてください</span>
+        </div>
+        <div class="register_buttons">
+          <input type="button" value="登録" id="register_btn">
+          <input type="button" value="キャンセル" id="register_cancel_btn">
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="script.js"></script>
+  </body>
+</html>
